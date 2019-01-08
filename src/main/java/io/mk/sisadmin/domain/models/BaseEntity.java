@@ -21,7 +21,6 @@ public class BaseEntity implements Serializable {
     private Long id;
 
     @Column(name = "ATIVO")
-    @JsonIgnore
     private Boolean ativo = true;
 
     @JsonIgnore
