@@ -1,10 +1,10 @@
 package io.mk.sisadmin.repository;
 
-import io.mk.sisadmin.domain.models.Pessoa;
-import org.springframework.data.jpa.repository.JpaRepository;
+import io.mk.sisadmin.model.entity.Pessoa;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
+public interface PessoaRepository extends MongoRepository<Pessoa, Long> {
 
 }

@@ -1,6 +1,6 @@
 package io.mk.sisadmin.resources;
 
-import io.mk.sisadmin.domain.models.Usuario;
+import io.mk.sisadmin.model.entity.Usuario;
 import io.mk.sisadmin.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

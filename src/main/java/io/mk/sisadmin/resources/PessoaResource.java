@@ -1,6 +1,6 @@
 package io.mk.sisadmin.resources;
 
-import io.mk.sisadmin.domain.models.Pessoa;
+import io.mk.sisadmin.model.entity.Pessoa;
 import io.mk.sisadmin.services.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,9 +1,9 @@
 package io.mk.sisadmin.repository;
 
-import io.mk.sisadmin.domain.models.Perfil;
-import org.springframework.data.jpa.repository.JpaRepository;
+import io.mk.sisadmin.model.entity.Perfil;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PerfilRepository extends JpaRepository<Perfil, Long> {
+public interface PerfilRepository extends MongoRepository<Perfil, Long> {
 }

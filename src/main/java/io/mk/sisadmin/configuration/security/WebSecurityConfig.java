@@ -1,6 +1,6 @@
 package io.mk.sisadmin.configuration.security;
 
-import io.mk.sisadmin.domain.models.Usuario;
+import io.mk.sisadmin.model.entity.Usuario;
 import io.mk.sisadmin.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

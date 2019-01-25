@@ -1,6 +1,6 @@
 package io.mk.sisadmin.services;
 
-import io.mk.sisadmin.domain.models.Perfil;
+import io.mk.sisadmin.model.entity.Perfil;
 import io.mk.sisadmin.repository.PerfilRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,8 +19,8 @@ public class PerfilService implements Serializable {
         this.perfilRepository = perfilRepository;
     }
 
-    public List<Perfil> delete(Long id){
-        this.perfilRepository.delete(perfilRepository.getOne(id));
+    public List<Perfil> delete(final Long id){
+        this.perfilRepository.delete(perfilRepository.findById(id).get());
         return this.findAll();
     }
 
@@ -34,7 +34,7 @@ public class PerfilService implements Serializable {
     }
 
     public List<Perfil> update(Perfil perfil){
-        perfilRepository.saveAndFlush(perfil);
+        perfilRepository.save(perfil);
         return this.findAll();
     }
 

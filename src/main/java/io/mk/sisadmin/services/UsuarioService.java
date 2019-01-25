@@ -1,6 +1,6 @@
 package io.mk.sisadmin.services;
 
-import io.mk.sisadmin.domain.models.Usuario;
+import io.mk.sisadmin.model.entity.Usuario;
 import io.mk.sisadmin.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package io.mk.sisadmin.services;
 
 import io.mk.sisadmin.repository.PessoaRepository;
-import io.mk.sisadmin.domain.models.Pessoa;
+import io.mk.sisadmin.model.entity.Pessoa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

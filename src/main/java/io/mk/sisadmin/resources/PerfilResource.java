@@ -1,13 +1,12 @@
 package io.mk.sisadmin.resources;
 
-import io.mk.sisadmin.domain.models.Perfil;
+import io.mk.sisadmin.model.entity.Perfil;
 import io.mk.sisadmin.services.PerfilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.Response;
 import java.util.List;
 
 @RestController
@@ -19,13 +18,9 @@ public class PerfilResource extends BaseResource{
     private PerfilService perfilService;
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<List<Perfil>> delete(@PathVariable Long id){
-        List<Perfil> perfils = perfilService.delete(id);
-
-        if(perfils == null)
-            return new ResponseEntity<>(perfils, HttpStatus.NOT_FOUND);
-
-        return new ResponseEntity<>(perfils, HttpStatus.OK);
+    public ResponseEntity<Void> delete(@PathVariable final Long id){
+        perfilService.delete(id);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     @GetMapping

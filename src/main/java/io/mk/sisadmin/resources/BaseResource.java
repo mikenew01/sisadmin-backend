@@ -1,6 +1,6 @@
 package io.mk.sisadmin.resources;
 
-import io.mk.sisadmin.domain.models.Usuario;
+import io.mk.sisadmin.model.entity.Usuario;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -15,20 +15,4 @@ public class BaseResource {
             throw e;
         }
     }
-
-    public String perfilLogado(){
-        try {
-            Usuario usuario = this.getUsuarioLogado();
-            String perfil = "";
-
-            if (usuario.getAuthorities().stream().findFirst().isPresent()) {
-//                perfil = usuario.getAuthorities().stream().findFirst().get();
-            }
-
-            return perfil;
-        } catch (Exception ex) {
-            throw ex;
-        }
-    }
-
 }

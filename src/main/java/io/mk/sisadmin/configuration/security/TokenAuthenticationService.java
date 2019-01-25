@@ -1,9 +1,9 @@
 package io.mk.sisadmin.configuration.security;
 
-import io.mk.sisadmin.domain.exceptions.AcessoNegadoException;
-import io.mk.sisadmin.domain.models.Usuario;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.mk.sisadmin.model.entity.Usuario;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 
@@ -21,10 +21,11 @@ public class TokenAuthenticationService {
     static final String TOKEN_PREFIX = "Bearer";
     static final String HEADER_STRING = "Authorization";
 
-    private TokenAuthenticationService(){}
+    private TokenAuthenticationService() {
+    }
 
-    public static void addAuthentication(HttpServletResponse response, Authentication authentication){
-        final Usuario usuario = (Usuario)authentication.getPrincipal();
+    public static void addAuthentication(HttpServletResponse response, Authentication authentication) {
+        final Usuario usuario = (Usuario) authentication.getPrincipal();
 
         HashMap<String, Object> mapa = new HashMap<>();
         mapa.put("id", usuario.getId());
@@ -40,20 +41,20 @@ public class TokenAuthenticationService {
         response.addHeader(HEADER_STRING, TOKEN_PREFIX + " " + JWT);
     }
 
-    public static Authentication getAuthentication(HttpServletRequest request){
+    public static Authentication getAuthentication(HttpServletRequest request) {
         String token = request.getHeader(HEADER_STRING);
 
-        if(Objects.nonNull(token)){
-            final String user = (String)Jwts.parser()
+        if (Objects.nonNull(token)) {
+            final String user = (String) Jwts.parser()
                     .setSigningKey(SECRET)
                     .parseClaimsJws(token.replace(TOKEN_PREFIX, ""))
                     .getBody()
                     .get("username");
 
-            if(Objects.nonNull(user))
+            if (Objects.nonNull(user))
                 return new UsernamePasswordAuthenticationToken(user, null, Collections.emptyList());
             else
-                throw new AcessoNegadoException("Acesso negado."); //trocar para exception
+                throw new AccessDeniedException("Acesso negado");
         }
 
         return null;

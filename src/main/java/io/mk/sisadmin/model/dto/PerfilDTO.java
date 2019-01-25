@@ -1,14 +1,15 @@
-package io.mk.sisadmin.domain.dtos;
+package io.mk.sisadmin.model.dto;
 
 import lombok.*;
 
 import java.io.Serializable;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @Builder
+@Getter
+@Setter
 public class PerfilDTO implements Serializable {
 
     private String nome;

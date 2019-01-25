@@ -1,4 +1,4 @@
-package io.mk.sisadmin.domain.dtos;
+package io.mk.sisadmin.model.dto;
 
 public class PessoaDTO {
 
