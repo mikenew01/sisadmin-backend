@@ -1,5 +1,6 @@
 package io.mk.aprender.resources;
 
+import io.mk.aprender.configuration.base.BaseResource;
 import io.mk.aprender.model.entity.Perfil;
 import io.mk.aprender.services.PerfilService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/roles")
 @ResponseBody
-public class PerfilResource extends BaseResource{
+public class PerfilResource extends BaseResource {
 
     @Autowired
     private PerfilService perfilService;

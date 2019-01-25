@@ -1,4 +1,4 @@
-package io.mk.aprender.model.mapper;
+package io.mk.aprender.configuration.base;
 
 import org.mapstruct.IterableMapping;
 import org.mapstruct.Named;

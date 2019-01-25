@@ -1,5 +1,6 @@
 package io.mk.aprender.resources;
 
+import io.mk.aprender.configuration.base.BaseResource;
 import io.mk.aprender.model.entity.Pessoa;
 import io.mk.aprender.services.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/pessoas")
 @ResponseBody
-public class PessoaResource extends BaseResource{
+public class PessoaResource extends BaseResource {
 
     @Autowired
     private PessoaService pessoaService;

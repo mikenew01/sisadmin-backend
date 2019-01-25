@@ -1,4 +1,4 @@
-package io.mk.aprender.resources;
+package io.mk.aprender.configuration.base;
 
 import io.mk.aprender.model.entity.Usuario;
 import org.springframework.security.core.Authentication;

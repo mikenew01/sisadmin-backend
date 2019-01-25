@@ -1,18 +1,21 @@
 package io.mk.aprender.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
+import io.mk.aprender.configuration.base.BaseEntity;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(collection = "perfis")
-public class Perfil implements GrantedAuthority {
+public class Perfil extends BaseEntity implements GrantedAuthority {
 
     @Id
     private String id;
@@ -21,9 +24,9 @@ public class Perfil implements GrantedAuthority {
 
     private String descricao;
 
-    public Perfil (String nome, String descricao){
-         this.nome = nome;
-         this.descricao = descricao;
+    public Perfil(String nome, String descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
     }
 
     @Override

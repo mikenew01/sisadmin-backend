@@ -1,5 +1,6 @@
 package io.mk.aprender.resources;
 
+import io.mk.aprender.configuration.base.BaseResource;
 import io.mk.aprender.model.entity.Usuario;
 import io.mk.aprender.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import java.util.List;
 @RestController
 @ResponseBody
 @RequestMapping("/usuarios")
-public class UsuarioResource extends BaseResource{
+public class UsuarioResource extends BaseResource {
 
     private final UsuarioService usuarioService;
 
