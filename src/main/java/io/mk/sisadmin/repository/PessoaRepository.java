@@ -7,4 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PessoaRepository extends MongoRepository<Pessoa, Long> {
 
+
+    Pessoa findByNome(String nome);
+
 }

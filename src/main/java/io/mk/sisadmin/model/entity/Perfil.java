@@ -21,6 +21,11 @@ public class Perfil implements GrantedAuthority {
 
     private String descricao;
 
+    public Perfil (String nome, String descricao){
+         this.nome = nome;
+         this.descricao = descricao;
+    }
+
     @Override
     @JsonIgnore
     public String getAuthority() {

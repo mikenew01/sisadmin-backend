@@ -1,11 +1,15 @@
 package io.mk.sisadmin;
 
+import io.mk.sisadmin.configuration.database.InitialDatabaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 
 import java.net.InetAddress;
@@ -15,7 +19,19 @@ import java.net.UnknownHostException;
 public class ApplicationSpringBoot extends SpringBootServletInitializer {
 	private static final Logger LOG = LoggerFactory.getLogger(ApplicationSpringBoot.class);
 
-	public static void main(String[] args) {
+	@Autowired
+	private InitialDatabaseService initialDatabaseService;
+
+	@Bean
+	CommandLineRunner preLoadMongo() throws Exception {
+		return args -> {
+			initialDatabaseService.initial();
+		};
+	}
+
+
+
+		public static void main(String[] args) {
 		ConfigurableApplicationContext ctx = SpringApplication.run(ApplicationSpringBoot.class, args);
 
 		try {

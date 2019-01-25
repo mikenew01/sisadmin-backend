@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PerfilRepository extends MongoRepository<Perfil, Long> {
+
+    Perfil findByNome(String nome);
+
 }
